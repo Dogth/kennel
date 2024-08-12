@@ -1,0 +1,86 @@
+{
+  "nodes": {
+    "home-manager": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1723399884,
+        "narHash": "sha256-97wn0ihhGqfMb8WcUgzzkM/TuAxce2Gd20A8oiruju4=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "086f619dd991a4d355c07837448244029fc2d9ab",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1723175592,
+        "narHash": "sha256-M0xJ3FbDUc4fRZ84dPGx5VvgFsOzds77KiBMW/mMTnI=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "5e0ca22929f3342b19569b21b2f3462f053e497b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nvchad4nix": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1721964147,
+        "narHash": "sha256-VqT5Jkdg03lny5NCfJkd2gdTlaJ6R5vYctCcTnP8Y2Q=",
+        "owner": "NvChad",
+        "repo": "nix",
+        "rev": "3f162f053f019326bcc40b2dfb2f767e5f064099",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NvChad",
+        "repo": "nix",
+        "type": "github"
+      }
+    },
+    "puppydog": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1723504603,
+        "narHash": "sha256-emH7CT6+2Yuy3QxUL9ZvTxx/c10YUpPR3/De7ozna3I=",
+        "owner": "Dogth",
+        "repo": "puppydog",
+        "rev": "e8892cade2258ce8897564e022953eedda27e11c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Dogth",
+        "repo": "puppydog",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "home-manager": "home-manager",
+        "nixpkgs": "nixpkgs",
+        "nvchad4nix": "nvchad4nix",
+        "puppydog": "puppydog"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
