@@ -2,23 +2,30 @@
   
   imports = [
     inputs.nvchad4nix.homeManagerModule
+    inputs.niri.homeModules.niri
   ];
 
   home.username = "dogth";
   home.homeDirectory = "/home/dogth";
   home.stateVersion = "24.05";
 
+##  environment.variables.NIXOS_OZONE_WL = "1";
+
   home.packages = with pkgs; [
     firefox
     foot fuzzel yazi
-    niri
     brightnessctl wl-clipboard bottom
     libva-utils
     devenv direnv
     git
+    thefuck
   ];
 
   programs.home-manager.enable = true;
+
+  programs.thefuck = {
+    enable = true;
+  };
 
   programs.git = {
     enable = true;
@@ -35,18 +42,24 @@
     syntaxHighlighting.enable = true;
     oh-my-zsh = {
       enable = true;
-      plugins = [ "git" "direnv" ];
+      plugins = [ "git" "direnv" "thefuck" ];
+      theme = "agnoster";
     };
   };
 
   programs.foot = {
-    enable = true;
+    enable = true; 
     server.enable = true;
     settings.main = {
       dpi-aware = false;
       font = "JetBrainsMono Nerdfont:size=12";
       pad = "6x6";
     };
+  };
+
+  programs.fuzzel = {
+    enable = true;
+    settings.main.terminal = "foot";
   };
 
   programs.nvchad = {
@@ -65,5 +78,37 @@
     extraConfig = inputs.puppydog;
     hm-activation = true;
     backup = true;
+  };
+
+  programs.niri = {
+    enable = true;
+    settings = {
+
+      outputs."eDP-1".scale = 1.0;
+
+      input.keyboard.xkb.layout = "us";
+      input.touchpad = {
+        tap = true;
+        dwt = false;
+      };
+
+      prefer-no-csd = true;
+      
+      layout = {
+        gaps = 8;
+        border.width = 0;
+        default-column-width ={proportion = 1.0 / 2.0;};
+      };
+
+      hotkey-overlay.skip-at-startup = true;
+
+      binds = with config.lib.niri.actions; {
+        "Mod+D".action.spawn = "fuzzel";
+        "Mod+Tab".action.spawn = "foot";
+        "Mod+Plus".action = set-column-width "+10%";
+        "Mod+F".action = maximize-column;
+        "Mod+Q".action = close-window;
+      };
+    };
   };
 }
