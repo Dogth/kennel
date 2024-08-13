@@ -75,9 +75,15 @@
         flake8
       ]))
     ];
-    extraConfig = inputs.puppydog;
+    extraConfig = pkgs.fetchFromGitHub {
+      owner = "Dogth";
+      repo = "puppydog";
+      rev = "63ca6d59394c22d93e3a4fcc404f1a967198b39a";
+      sha256 = "sha256-vlHyILaMfmsUaKH7+29H8yDALtDwquZRCj0ooWqv+P8=";
+      name = "puppy-configs";
+    };
     hm-activation = true;
-    backup = true;
+    backup = false;
   };
 
   programs.niri = {
@@ -108,6 +114,7 @@
         "Mod+Plus".action = set-column-width "+10%";
         "Mod+F".action = maximize-column;
         "Mod+Q".action = close-window;
+        "Mod+Shift+F".action = fullscreen-window;
       };
     };
   };
